@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Rock Paper Scissors Game</h1>
+        
+        <div class="wallet-section">
+            <button id="connectBtn" onclick="connectWallet()">Connect Wallet</button>
+            <p id="walletAddress"></p>
+            <p>Balance: <span id="balance">0</span> tBNB</p>
+        </div>
+        
+        <div class="game-section">
+            <h2>Make Your Choice:</h2>
+            <div class="choices">
+                <button class="choice-btn" onclick="play(0)">🪨 Rock</button>
+                <button class="choice-btn" onclick="play(1)">📄 Paper</button>
+                <button class="choice-btn" onclick="play(2)">✂️ Scissors</button>
+            </div>
+            <p>Bet: 0.0001 tBNB</p>
+        </div>
+        
+        <div class="history-section">
+            <h2>Game History</h2>
+            <div id="history"></div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
