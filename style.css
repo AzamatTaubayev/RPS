@@ -1,3 +1,19 @@
+/* --- 1. Global Reset & Typography --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Define colors for easy management */
+    --color-background: #1e1e2f; /* Dark Purple-Blue */
+    --color-card: #27293d;      /* Slightly Lighter Card Background */
+    --color-text: #ffffff;      /* White Text */
+    --color-primary: #5d5dff;   /* Vivid Blue/Purple Accent */
+    --color-secondary: #00d2ff;  /* Cyan/Light Blue Accent */
+    --color-win: #4CAF50;       /* Green for Win */
+    --color-lose: #f44336;      /* Red for Lose */
+    --color-border: #3c4059;    /* Subtle Border */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,101 +21,171 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     padding: 20px;
 }
 
+/* --- 2. Layout and Structure --- */
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--color-card);
+    border-radius: 16px;
     padding: 30px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-border);
 }
 
 h1 {
+    font-size: 2em;
+    font-weight: 700;
     text-align: center;
-    color: #667eea;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    color: var(--color-secondary);
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
 }
+
+h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+}
+
+/* --- 3. Wallet Section Styling --- */
 
 .wallet-section {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f5f5f5;
+    background-color: #31334b; /* Darker background for distinction */
+    padding: 15px;
     border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    border: 1px dashed var(--color-primary);
 }
 
-#connectBtn {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+#walletAddress {
+    font-size: 0.9em;
+    opacity: 0.7;
+    word-wrap: break-word;
+    margin: 5px 0;
 }
 
-#connectBtn:hover {
-    background: #5568d3;
-    transform: translateY(-2px);
+#balance {
+    font-weight: 600;
+    color: var(--color-win);
 }
+
+/* --- 4. Game Section Styling --- */
 
 .game-section {
-    text-align: center;
-    margin: 30px 0;
+    margin-bottom: 30px;
 }
 
 .choices {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 10px;
     margin: 20px 0;
 }
 
 .choice-btn {
-    background: white;
-    border: 3px solid #667eea;
-    padding: 30px;
-    border-radius: 15px;
-    font-size: 50px;
+    /* Base Button Style */
+    flex-grow: 1;
+    background: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 10px;
+    font-size: 2.5em; /* Large emoji/icon */
     cursor: pointer;
-    transition: 0.3s;
+    transition: 
+        transform 0.2s, 
+        box-shadow 0.2s, 
+        background 0.2s;
+    line-height: 1;
 }
 
 .choice-btn:hover {
-    background: #667eea;
-    transform: scale(1.1);
+    background: #7373ff; /* Slightly lighter on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(93, 93, 255, 0.4);
 }
 
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+/* Connect Button Specific Styles */
+#connectBtn {
+    background: var(--color-secondary);
+    color: var(--color-background);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 10px;
+}
+
+#connectBtn:hover {
+    background: #39e9ff;
+}
+
+/* --- 5. History Section Styling --- */
+
 .history-section {
-    margin-top: 40px;
+    padding-top: 10px;
 }
 
 #history {
-    max-height: 300px;
+    max-height: 250px;
     overflow-y: auto;
+    padding-right: 10px; /* Space for scrollbar */
 }
 
+/* Style individual history items */
 .history-item {
-    padding: 15px;
-    margin: 10px 0;
-    background: #f5f5f5;
-    border-radius: 10px;
-    border-left: 4px solid #667eea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    border-left: 5px solid;
+    transition: background 0.3s;
 }
 
-.win {
-    border-left-color: #10b981;
-    background: #d1fae5;
+/* Result specific styling */
+.history-item.win {
+    border-color: var(--color-win);
+    background-color: #3b4e3c; /* Darker green background */
 }
 
-.lose {
-    border-left-color: #ef4444;
-    background: #fee2e2;
+.history-item.lose {
+    border-color: var(--color-lose);
+    background-color: #533b3b; /* Darker red background */
+}
+
+.history-item.draw {
+    border-color: var(--color-secondary);
+    background-color: #3b4353; /* Darker blue background */
+}
+
+.history-item p {
+    margin: 0;
+}
+
+.history-item .result-text {
+    font-weight: 700;
 }
